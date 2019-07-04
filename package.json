@@ -22,7 +22,9 @@
     "changecase-src": "node tasks/filename-case-from-module.js",
     "transform-examples": "jscodeshift --transform transforms/module.js examples",
     "transform-test": "jscodeshift --transform transforms/module.js test",
-    "transform": "npm run changecase-src && npm run transform-src && npm run transform-examples && npm run transform-test && npm run lint -- --fix"
+    "transform": "npm run changecase-src && npm run transform-src && npm run transform-examples && npm run transform-test && npm run lint -- --fix",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "main": "dist/ol.js",
   "repository": {
@@ -51,7 +53,8 @@
     "rollup-plugin-commonjs": "^8.0.2",
     "rollup-plugin-node-resolve": "^3.0.0",
     "temp": "0.8.3",
-    "walk": "2.3.9"
+    "walk": "2.3.9",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "clean-css-cli": "4.1.9",
@@ -150,5 +153,6 @@
       "module": "pixelworks",
       "import": "Processor"
     }
-  ]
+  ],
+  "snyk": true
 }
